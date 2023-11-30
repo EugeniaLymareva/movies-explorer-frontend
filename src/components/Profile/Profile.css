@@ -1,0 +1,159 @@
+.profile {
+    min-width: 410px;
+    align-items: center;
+    justify-content: center;  
+    display: flex;
+    flex-direction: column;
+    margin-top: 33px;
+}
+
+@media(max-width: 768px) {
+    .profile {
+        min-height: 950px;
+        margin: 0;
+        justify-content: flex-start;
+    }
+}
+
+@media(max-width: 480px) {
+    .profile {
+        min-width: 260px;
+        min-height: 706px;
+    }
+}
+
+@media(max-width: 768px) {
+    .profile__title {
+        margin-top: 237px;
+    }
+}
+
+@media(max-width: 480px) {
+    .profile__title {
+        margin: 69px 0 25px 0;
+    }
+}
+
+.profile__form {
+    margin-top: 69px;
+}
+
+@media(max-width: 768px) {
+    .profile__form {
+        margin-top: 40px;
+        
+    }
+}
+
+.profile__label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+@media(max-width: 768px) {
+    .profile__label {
+        margin-bottom: 3px;
+    }
+}
+
+
+.label-gap {
+    margin-bottom: 207px;
+}
+
+@media(max-width: 768px) {
+    .label-gap {
+        margin-bottom: 195px;
+    }
+}
+
+@media(max-width: 480px) {
+    .label-gap {
+        margin-bottom: 363px;
+    }
+}
+
+.profile__input {
+    width: 100%;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #FFF;
+    text-align: right;
+    margin: 0;
+    padding: 16px 0;
+    border: 0;
+    border-bottom: 1px solid #424242;
+    background-color: transparent;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.profile__email {
+    border-bottom: 0;
+}
+
+.profile__input-text {
+    position: absolute;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #FFF;
+    margin: 0;
+}
+
+.profile__submit-button {
+    /* visibility: hidden; */
+    display: none;
+}
+
+.profile__button {
+    width: 100%;
+    color: #FFF;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: transparent;
+    margin-bottom: 16px;
+    padding: 0;
+    border: 0;
+}
+
+.profile__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+@media(max-width: 480px) {
+    .profile__button {
+        font-size: 12px;
+    }
+}
+
+.profile__link {
+    color: #EE3465;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.profile__link:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+@media(max-width: 480px) {
+    .profile__link {
+        font-size: 12px;
+    }
+}
