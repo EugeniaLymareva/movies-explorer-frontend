@@ -5,26 +5,26 @@ import './Portfolio.css'
 
 function Portfolio() {
     return (
-        <div className="portfolio">
+        <section className="portfolio">
             <h3 className="portfolio__title">Портфолио</h3>
             <ul className="portfolio__list">
                 <li className="portfolio__container">
-                    <Link className="portfolio__link" to="#">Статичный сайт
+                    <a className="portfolio__link" href={"https://practicum.studentlea.nomoredomainsicu.ru"} target={'blank'}>Статичный сайт
                         <img className="portfolio__img" src={portfolioImg} alt="Картинка стрелки" />
-                    </Link>
+                    </a>
                 </li>
                 <li className="portfolio__container">
-                    <Link className="portfolio__link" to="#">Адаптивный сайт
+                    <a className="portfolio__link" href={"https://eugenialymareva.github.io/russian-travel/"} target={'blank'}>Адаптивный сайт
                         <img className="portfolio__img" src={portfolioImg} alt="Картинка стрелки" />
-                    </Link>
+                    </a>
                 </li>
                 <li className="portfolio__container">
-                    <Link className="portfolio__link" to="#">Одностраничное приложение
+                    <a className="portfolio__link" href="#" target={'blank'}>Одностраничное приложение
                         <img className="portfolio__img" src={portfolioImg} alt="Картинка стрелки" />
-                    </Link>
+                    </a>
                 </li>
             </ul>
-        </div>
+        </section>
     ) 
 }
 

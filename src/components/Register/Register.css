@@ -20,10 +20,14 @@
         padding: 0 30px;
     }
 }
-  
+
+.register__link {
+    width: 38px;
+}
+
 @media(max-width: 450px) {
-    .register__logo {
-        margin: 56px 0 50px 0;
+    .register__link {
+        margin: 56px 0 46px 0;
     }
 }
 
@@ -33,16 +37,16 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin: 40px 0;
+    /* margin: 40px 0; */
 }
 
 .register__title {
-    margin: 39px 0 41px 0;
+    margin: 36px 0 41px 0;
 }
 
 @media(max-width: 1080px) {
     .register__title {
-        margin: 39px 0 0 0;
+        margin: 35px 0 0 0;
     }
 }
 
@@ -120,7 +124,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-top: 69px;
+    /* margin-top: 69px; */
 }
 
 .submit-button:hover {
@@ -131,8 +135,17 @@
 @media(max-width: 450px) {
     .submit-button {
         font-size: 12px;
+    } 
+}
+
+.register__button {
+    margin-top: 68px;
+}
+
+@media(max-width: 450px) {
+    .register__button {
         margin-top: 157px;
-    }
+    } 
 }
 
 .signin-signup {

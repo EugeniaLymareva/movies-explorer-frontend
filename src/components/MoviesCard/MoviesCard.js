@@ -9,17 +9,15 @@ function MoviesCard({ isLiked, name }) {
 
 
     return (
-        <>
-            <li className="mov-card">
-                <img className="mov-card__img" src={Img} alt={name} />
-                <div className="mov-card__container">
-                    <h3 className="mov-card__title">{name}</h3>
-                    {location.pathname === '/movies' ? <button className={moveSaveButtonClassName} type="button"></button> :
-                        <button className='mov-card__delete' type="button"></button>}
-                </div>
-                <p className="mov-card__time">1ч42м</p>
-            </li>
-        </>
+        <li className="mov-card">
+            <img className="mov-card__img" src={Img} alt={name} />
+            <div className="mov-card__container">
+                <h3 className="mov-card__title">{name}</h3>
+                {location.pathname === '/movies' ? <button className={moveSaveButtonClassName} type="button"></button> :
+                    <button className='mov-card__delete' type="button"></button>}
+            </div>
+            <p className="mov-card__time">1ч42м</p>
+        </li>
     )
 }
 

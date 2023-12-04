@@ -9,7 +9,7 @@
     user-select: none;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1080px) {
     .checkbox.style {
         padding: 0 49px 0 0;  
     }
@@ -45,7 +45,7 @@
     border-radius: 10px;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1080px) {
     .checkbox.style .checkbox__checkmark {
         right: 0px;
         left: auto;

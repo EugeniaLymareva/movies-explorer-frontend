@@ -21,21 +21,26 @@
     }
 }
 
+.login__link {
+    width: 38px;
+}
+
 @media(max-width: 450px) {
-    .login__logo {
-        margin: 56px 0 10px 0;
+    .login__link {
+        margin: 56px 0 6px 0;
     }
 }
 
 .login__title {
-    margin: 40px 0 41px 0;
+    /* margin: 40px 0 41px 0; */
+    margin: 36px 0 40px 0;
 }
 
-@media(max-width: 1080px) {
+/* @media(max-width: 1080px) {
     .login__title {
-        margin: 40px 0 40px 0;
+        margin: 36px 0 40px 0;
     }
-}
+} */
 
 @media(max-width: 450px) {
     .login__title {
@@ -44,14 +49,14 @@
 }
 
 .login__button {
-    margin-top: 158px;
+    margin-top: 159px;
 }
 
-@media(max-width: 1080px) {
+/* @media(max-width: 1080px) {
     .login__button {
         margin-top: 159px;
     }
-}
+} */
 
 @media(max-width: 450px) {
     .login__button {

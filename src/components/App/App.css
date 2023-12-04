@@ -24,3 +24,19 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+input:focus {
+  background-color: transparent;
+  padding-left: 15px;
+  border-radius: 8px;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #FFF;
+  -webkit-box-shadow: 0 0 0px 1000px #2F2F2F inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

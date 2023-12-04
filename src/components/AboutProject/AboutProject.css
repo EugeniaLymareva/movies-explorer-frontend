@@ -27,11 +27,18 @@
     flex-direction: column;
 }
 
+.about-project__container:first-child {
+  margin-right: 30px;
+}
+
 @media(max-width: 550px) {
     .about-project__container {
         max-height: 106px;
     }
-  }
+    .about-project__container:first-child {
+        margin-right: 0;  
+    }
+}
 
 .section-title-container {
     display: flex;

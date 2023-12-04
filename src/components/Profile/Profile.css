@@ -22,6 +22,10 @@
     }
 }
 
+.profile__title {
+    margin: 40px 0;
+}
+
 @media(max-width: 768px) {
     .profile__title {
         margin-top: 237px;
@@ -91,6 +95,19 @@
     background-color: transparent;
     outline: none;
     box-sizing: border-box;
+}
+
+.profile__input:focus {
+    padding: 16px 10px;
+    outline: 0.2rem solid rgba(158, 158, 158, 0.25);
+}
+
+.profile__input:-webkit-autofill,
+.profile__input:-webkit-autofill:hover, 
+.profile__input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #FFF;
+  -webkit-box-shadow: 0 0 0px 1000px #202020 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .profile__email {

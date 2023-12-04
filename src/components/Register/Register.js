@@ -5,8 +5,10 @@ import './Register.css'
 
 function Register() {
     return (
-        <div className="register">
-            <img className="header__logo register__logo" src={headerLogo} alt="Логотип Diplom" />
+        <section className="register">
+            <Link to="/" className='register__link'>
+                <img className="header__logo register__logo" src={headerLogo} alt="Логотип Diplom" />
+            </Link>            
             <h2 className="title register__title">Добро пожаловать!</h2>
             <form className="register__form form">
                 <label className="label">Имя
@@ -24,14 +26,14 @@ function Register() {
                     <span className="error">Что-то пошло не так...</span>
                 </label>
 
-                <button type="submit" className="submit-button">Зарегистрироваться</button>
+                <button type="submit" className="submit-button register__button">Зарегистрироваться</button>
             </form>
 
             <div className="signin-signup">
                     <p>Уже зарегистрированы?</p>
                     <Link to="/signin" className="link">Войти</Link>
             </div>
-        </div>
+        </section>
     )
 
 }

@@ -8,12 +8,12 @@ function Profile() {
         <>
             <Header />
 
-            <div className="profile">
+            <section className="profile">
                 <h2 className="profile__title title">Привет, Евгения!</h2>
                 <form className="form profile__form">
                     <label className="profile__label">
                         <p className="profile__input-text">Имя</p>
-                        <input type="text" name="name" className="profile__input" required minLength="2" maxLength="30" />
+                        <input type="text" name="name" className="profile__input profile__name" required minLength="2" maxLength="30" />
                     </label>
                     
                     <label className="profile__label label-gap">
@@ -26,7 +26,7 @@ function Profile() {
                 </form>
                 <button type="button" className="profile__button" >Редактировать</button>
                 <Link to="/" className="profile__link">Выйти из аккаунта</Link>
-            </div>
+            </section>
         </>
     )
 }

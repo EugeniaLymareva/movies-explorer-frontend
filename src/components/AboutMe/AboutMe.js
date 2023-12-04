@@ -6,7 +6,7 @@ import './AboutMe.css'
 
 function AboutMe() {
     return (
-        <div className="about-me">
+        <section className="about-me">
             <div className="section-title-container">
                 <h3 className="section-title">Студентка</h3>
             </div>
@@ -25,7 +25,7 @@ function AboutMe() {
                 
                 <Portfolio />
             </div> 
-        </div>
+        </section>
     )
 }
 

@@ -5,8 +5,11 @@ import './Login.css'
 
 function Login() {
     return (
-        <div className="login">
-            <img className="header__logo login__logo" src={headerLogo} alt="Логотип Diplom" />
+        <section className="login">
+            <Link to="/" className='login__link'>
+                <img className="header__logo login__logo" src={headerLogo} alt="Логотип Diplom" />
+            </Link>
+            
             <h2 className="login__title title">Рады видеть!</h2>
             <form className="form">
                 <label className="label">E-mail
@@ -26,7 +29,7 @@ function Login() {
                     <p>Ещё не зарегистрированы?</p>
                     <Link to="/signup" className="link">Регистрация</Link>
             </div>
-        </div>
+        </section>
     )
 }
 
