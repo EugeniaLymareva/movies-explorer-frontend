@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+} 
+
+body {
+  background-color: #202020;
+  font-family: 'Inter', "Arial", sans-serif;
+  font-style: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  max-width: 1280px;
+  height: 100vh;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input:focus {
+  background-color: transparent;
+  padding-left: 15px;
+  border-radius: 8px;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #FFF;
+  -webkit-box-shadow: 0 0 0px 1000px #2F2F2F inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

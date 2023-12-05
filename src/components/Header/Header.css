@@ -1,0 +1,168 @@
+.header {
+    width: 100%;
+    min-height: 74px;
+    padding: 0 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__main {
+  background-color: #073042;
+}
+
+@media(max-width: 1080px) {
+  .header {
+    padding: 0 30px;
+    min-height: 73px;
+  }
+}
+
+@media(max-width: 350px) {
+  .header {
+    padding: 0 14px;
+    min-height: 74px;
+  }
+}
+
+.header__logo {
+    max-width: 38px;
+    max-height: 38px;
+}
+
+.header__nav {
+    list-style-type:  none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* justify-content: center; */
+    padding: 0;
+    /* padding-left: 5px; */
+}
+
+@media(max-width: 350px) {
+  .header__nav {
+    margin: 0 0 4px 0;
+  }
+}
+
+.nav-form {
+    border-radius: 40px;
+    background: transparent;
+    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+    width: 100px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.nav-form:hover {
+    opacity: 0.7;
+    cursor: pointer; 
+}
+
+.indentation {
+    margin-left: 79px;
+}
+
+.header__signin {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.33;
+    text-decoration: none;
+    background-color: #3DDC84;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 3px;
+    width: 76px;
+    height: 32px;
+}
+
+.header__signin:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+@media(max-width: 350px) {
+  .header__signin {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
+    padding: 7px 12px;
+  }
+}
+
+.header__signup {
+    color: #FFFFFF;
+    text-align: right;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.22;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin-right: 30px;
+}
+
+.header__signup:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+@media(max-width: 350px) {
+  .header__signup {
+    font-size: 10px;
+    margin-right: 14px;
+  }
+}
+
+.header__link {
+  color: #FFF;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+  margin-right: 16px;
+}
+
+.header__link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.header__link-active {
+  font-weight: 500;
+}
+
+.header__link.header__link-active:hover {
+  opacity: 1;
+  cursor: default;
+}
+
+.header__account-link {
+  color: #FFF;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0.92;
+  text-decoration: none;
+  margin: 0 7px 0 11px;
+}
+
+.header__icon {
+  border-radius: 50px;
+  background: #313131;;
+  width: 26px;
+  height: 26px;
+  object-fit: scale-down;
+  margin-right: 2px;
+}
+
+.header__icon-main {
+  background: #0F4157;
+}
+

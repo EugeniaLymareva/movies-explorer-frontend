@@ -1,0 +1,135 @@
+.footer {
+    width: 100%;
+    /* min-height: 172px; */
+    padding: 0 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media(max-width: 1080px) {
+    .footer {
+        padding: 0 30px;
+    }
+}
+
+@media(max-width: 730px) {
+    .footer {
+        /* margin-top: 135px; */
+    }
+}
+
+@media(max-width: 375px) {
+    .footer {
+        padding: 0 10px;
+        /* min-height: 253px; */
+        align-items: center;
+        margin-top: 70px;
+    }
+}
+
+@media(max-width: 350px) {
+    .footer {
+        margin-top: 0;
+    }
+}
+
+.footer__container {
+    width: 100%;
+    border-block-end: solid 1px #424242;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 7px ;
+}
+
+@media(max-width: 375px) {
+    .footer__container {
+        margin-bottom: 30px ;
+    }
+}
+
+.footer__text {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #8B8B8B;
+    margin: 18px 0;
+}
+
+@media(max-width: 375px) {
+    .footer__text {
+        font-size: 12px;
+        margin: 20px 0;
+    }
+}
+
+.footer__nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width: 375px) {
+    .footer__nav {
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+}
+
+.footer__copyright {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #FFF;
+}
+
+@media(max-width: 375px) {
+    .footer__copyright {
+        font-size: 12px;
+        color: #8B8B8B;
+        position: absolute;
+        margin: 0;
+        top: 72px;
+        left: auto;
+        letter-spacing: -1.2px;
+    }
+}
+
+.footer__link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 182px;
+}
+
+@media(max-width: 375px) {
+    .footer__link-container {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+.footer__link {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.footer__link:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+@media(max-width: 375px) {
+    .footer__link {
+        font-size: 12px;
+        margin-bottom: 13px;
+    }
+}
+

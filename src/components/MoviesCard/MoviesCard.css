@@ -1,0 +1,107 @@
+.mov-card {
+    background-color: #222222;
+    max-width: 270px;
+    min-height: 218px;
+    border-radius: 10px;
+    filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.05));
+}
+
+@media(max-width: 768px) {
+    .mov-card {
+        max-width: 339px;
+        min-height: 257px;
+    }
+}
+
+@media(max-width: 400px) {
+    .mov-card {
+        max-width: 300px;
+        min-height: 235px;
+    }
+}
+
+.mov-card__img {
+    width: 270px;
+    height: 151px;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+@media(max-width: 768px) {
+    .mov-card__img {
+        width: 339px;
+        height: 190px
+    }
+  }
+
+@media(max-width: 400px) {
+    .mov-card__img {
+        width: 300px;
+        height: 168px
+    }
+  }  
+
+.mov-card__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 12px 0 12px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.mov-card__title {
+    color: #FFF;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+}
+
+.mov-card__save {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    background-color: #313131;
+    padding: 0;
+}
+
+.mov-card__save:hover {
+    cursor: pointer;
+}
+
+.mov-card__save-active {
+    background-color: #2BE080;
+}
+
+.mov-card__save.mov-card__save-active:hover {
+    cursor: default;
+}
+
+.mov-card__delete {
+    width: 16px;
+    height: 16px;
+    background-image: url(../../images/d8.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.mov-card__delete:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.mov-card__time {
+    color: #8B8B8B;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 10px 0 14px 12px;
+}

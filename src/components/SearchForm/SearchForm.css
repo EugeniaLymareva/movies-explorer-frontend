@@ -1,0 +1,115 @@
+.search {
+    width: 100%;
+    min-height: 217px;
+    padding: 0 70px;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+
+@media(max-width: 1080px) {
+    .search {
+        padding: 0 30px;
+        align-items: flex-end;
+        margin-bottom: 91px;
+    }
+  }
+
+  @media(max-width: 350px) {
+    .search {
+        align-items: center;
+        padding: 0 14px;
+        margin-bottom: 61px;
+        /* min-height: 238px; */
+    }
+  }
+
+.search__label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 57px 0 32px 0;
+}
+
+@media(max-width: 1080px) {
+    .search__label {
+        margin: 66px 0 30px 0;
+    }
+}
+
+@media(max-width: 350px) {
+    .search__label {
+        margin: 76px 0 41px 0;
+    }
+}
+
+.search__input {
+    width: 100%;
+    color: #FFF;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: 0;
+    border-bottom: 1px solid #424242;
+    background-color: transparent;
+    outline: none;
+    box-sizing: border-box;
+    padding: 13px 0;
+ }
+
+.search__input::placeholder {
+    color: #8B8B8B;
+}
+
+.search__input:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.search__input:focus {
+  padding-left: 10px;
+  outline: 0.2rem solid rgba(158, 158, 158, 0.25);
+}
+
+.search__input:-webkit-autofill,
+.search__input:-webkit-autofill:hover, 
+.search__input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #FFF;
+  -webkit-box-shadow: 0 0 0px 1000px #202020 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media(max-width: 1080px) {
+    .search__input {
+        padding: 14px 0;
+    }
+}
+
+@media(max-width: 350px) {
+    .search__input {
+        font-size: 18px;
+    }
+}
+
+.search__button {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    right: 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    background-image: url(../../images/find.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.search__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}

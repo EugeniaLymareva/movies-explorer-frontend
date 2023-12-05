@@ -1,0 +1,51 @@
+.cardList {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    display: grid;
+    justify-self: center;
+    margin: 0 auto;
+    padding: 0 70px;
+    width: 100%;
+}
+
+@media(max-width: 1080px) {
+    .cardList {
+        padding: 0 30px;
+    }
+}
+
+@media(max-width: 400px) {
+    .cardList {
+        padding: 0 10px;
+    }
+}
+
+.cardList__grid {
+    display: grid;
+    gap: 20px;
+    row-gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    align-self: center;
+    justify-self: center;
+    justify-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+@media(max-width: 768px) {
+    .cardList__grid {
+        grid-template-columns: repeat(auto-fill, minmax(339px, 1fr));
+        gap: 30px;
+        row-gap: 36px; 
+    }
+  }
+
+@media(max-width: 400px) {
+    .cardList__grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        row-gap: 20px; 
+    }
+}
