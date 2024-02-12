@@ -57,7 +57,7 @@ function Profile(props) {
 
     function signOut(){
         localStorage.removeItem('token');
-        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;  secure; sameSite=None;"; // domain=nomoredomainsicu.ru;
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=nomoredomainsrocks.ru; secure; sameSite=None;"; // domain=nomoredomainsicu.ru;
         props.loggedOut()
     }
 
