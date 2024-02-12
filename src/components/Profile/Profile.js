@@ -1,12 +1,11 @@
 import React from 'react'
 import Header from '../Header/Header'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 import InfoTooltip from '../InfoTooltip/InfoTooltip'
 import './Profile.css'
 
 function Profile(props) {
-    // const navigate = useNavigate()
     const currentUser = React.useContext(CurrentUserContext)
     const [name , setName] = React.useState(currentUser.name)
     const [email, setEmail ] = React.useState(currentUser.email)
@@ -24,14 +23,12 @@ function Profile(props) {
     }, [name, email, currentUser])
 
     function handleSubmit(e) {
-        // console.log('onUpdateUser')
         e.preventDefault();
       
         props.onUpdateUser({
             name,
             email
         })
-        // console.log('onUpdateUser')
     }
 
     function handlNameChange(e) {
@@ -62,7 +59,6 @@ function Profile(props) {
         localStorage.removeItem('token');
         document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;  secure; sameSite=None;"; // domain=nomoredomainsicu.ru;
         props.loggedOut()
-        // navigate('/signin');
     }
 
     return (

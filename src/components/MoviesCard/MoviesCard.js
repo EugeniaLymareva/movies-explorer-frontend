@@ -1,4 +1,3 @@
-// import Img from '../../images/pic__COLOR_pic.svg'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import './MoviesCard.css'
@@ -21,22 +20,8 @@ function MoviesCard(props) {
 
     function handleMovie() {
         props.handleSavedMovie(props.movie)
-        // console.log('handleSavedMovie', props.movie)
-        // const { id, created_at, updated_at, isLiked, ...restMovie } = props.movie
-        // if (isLiked) {
-        //     props.handleDeleteMovie(restMovie.movieId)
-        // } else {
-        //     props.handleSaveMovie(restMovie)
-        // }
     }
-    // function handleSaveMovie() {
-    //     props.onSaveMovie(props.movie.id)
-    // }
 
-    // function handleDeleteMovie() {
-    //     props.onDeleteMovie(props.movie.id)
-    // }
-    //https://api.nomoreparties.co
     return (
         <li className="mov-card">
             <a href={props.movie.trailerLink} target='blank'><img className="mov-card__img" src={`${props.movie.image}`} alt={props.movie.name} /></a>
@@ -51,5 +36,3 @@ function MoviesCard(props) {
 }
 
 export default MoviesCard;
-
-// { isLiked, name }

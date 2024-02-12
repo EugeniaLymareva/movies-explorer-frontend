@@ -1,15 +1,13 @@
 import headerLogo from '../../images/header-logo.svg'
 import accountIcon from '../../images/icon-account.svg'
 import React from 'react'
-import {Link, useNavigate, useLocation} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import { useWindowDimensions } from 'react-native'
 import './Header.css'
 import BurgerMenu from '../BurgerMenu/BurgerMenu'
 
 function Header({ isLoggedIn }) {
-    // console.log('header', isLoggedIn)
     const location = useLocation()
-    // const navigate = useNavigate()
     const [windowSize, setWindowSize] = React.useState()
     const { width } = useWindowDimensions()
 

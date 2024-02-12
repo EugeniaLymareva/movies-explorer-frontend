@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import './SearchForm.css'
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox'
 
@@ -6,20 +7,15 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox'
 function SearchForm(props) {
     const [formValue, setFormValue] = useState({ search: ''})
     const [isError, setIsError] = useState('')
+    const { pathname } = useLocation()
 
     const handleChange = (e) => {
-        const {name, value} = e.target
-        // const form = e.target.form 
-        // const validationMessage = e.target.validationMessage  
+        const {name, value} = e.target 
 
         setFormValue({                  
             ...formValue,
             [name]: value
         })
-
-        // setIsValid(form.checkValidity());
-
-        // setErrors(prev => ({ ...prev, [name]: validationMessage }))
     }
 
     const handleSubmit = (e) => {
@@ -31,7 +27,9 @@ function SearchForm(props) {
         }
 
         setIsError('')
-        localStorage.setItem(props.searchKey, formValue.search)
+        if (pathname === '/movies') {
+            localStorage.setItem(props.searchKey, formValue.search)
+        }
 
         props.searchMovies(formValue.search, props.savedMovies)
     }

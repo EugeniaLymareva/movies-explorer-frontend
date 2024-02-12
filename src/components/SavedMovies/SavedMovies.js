@@ -9,8 +9,6 @@ function SavedMovies(props){
     const [isCheck, setIsCheck] = React.useState(false)
     const [isCheckfilteredMovies, setIsCheckFilteredMovies] = React.useState([])
     const [search, setSearch] = React.useState('')
-    const searchKey = 'saved-movies'
-
 
     React.useEffect(() => {
         console.log('BEST USE_FFECT EVER')
@@ -18,14 +16,6 @@ function SavedMovies(props){
             handleIsCheckFilteredMovies(props.savedMovies, search)
         } 
     }, [isCheck, props.savedMoviesLoaded, props.savedMovies])
-
-    // React.useEffect(() => {
-    //     console.log('Movie component savedMoviesLoaded useEffect')
-    //     if(props.savedMoviesLoaded && !props.savedMovies.length) {
-    //         props.savedMovies()
-    //     } 
-    //   }, [props.savedMoviesLoaded])
-
 
     function filterMovies(search, savedMovies) {
         setSearch(search)
@@ -60,8 +50,8 @@ function SavedMovies(props){
                 searchMovies={filterMovies} 
                 savedMovies={props.savedMovies} 
                 isCheck={isCheck} 
-                setIsCheck={setIsCheck} 
-                searchKey={searchKey}/>
+                setIsCheck={setIsCheck}
+            />
             <MoviesCardList
                 filteredMovies={isCheckfilteredMovies}
                 errorMessage={props.errorMessage}

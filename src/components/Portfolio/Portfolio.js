@@ -1,6 +1,5 @@
 import portfolioImg from '../../images/portfolio arrow .svg'
 import React from 'react'
-import {Link, useNavigate, useLocation} from 'react-router-dom'
 import './Portfolio.css'
 
 function Portfolio() {

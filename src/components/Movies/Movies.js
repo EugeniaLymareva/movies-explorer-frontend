@@ -14,7 +14,6 @@ function Movies(props) {
     const [isCheckfilteredMovies, setIsCheckFilteredMovies] = React.useState([])
     const [isCheck, setIsCheck] = React.useState(localStorage.getItem('shorts') === 'true')
     const searchKey = 'movie'
-    const shortsKey = 'shorts'
     
     function getAllMovies(search) {
         if (!allMovies.length) {
@@ -36,20 +35,6 @@ function Movies(props) {
             handleIsCheckFilteredMovies(allMovies, search)
         }
     }
-
-    // React.useEffect(() => {
-    //     console.log('Movie component initial useEffect 1')
-    //     if (allMovies.length && localStorage.getItem(searchKey)) {
-    //         handleIsCheckFilteredMovies(allMovies, localStorage.getItem(searchKey))
-    //     }
-    // }, [])
-    //
-    // React.useEffect(() => {
-    //     console.log('Movie component savedMoviesLoaded useEffect 2', props.savedMoviesLoaded)
-    //     if(localStorage.getItem(searchKey) && props.savedMoviesLoaded && !allMovies.length) {
-    //         getAllMovies(localStorage.getItem(searchKey), props.savedMovies)
-    //     }
-    //   }, [props.savedMoviesLoaded])
 
     React.useEffect(() => {
         console.log('Movie component change isCheck and savedMovies useEffect 3', allMovies)
