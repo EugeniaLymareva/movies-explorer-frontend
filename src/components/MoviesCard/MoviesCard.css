@@ -46,7 +46,7 @@
     justify-content: space-between;
     width: 100%;
     padding: 0 12px 0 12px;
-    align-items: center;
+    align-items: start;
     margin-top: 10px;
 }
 
@@ -57,6 +57,10 @@
     font-weight: 500;
     line-height: normal;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
 }
 
 .mov-card__save {
@@ -74,10 +78,6 @@
 
 .mov-card__save-active {
     background-color: #2BE080;
-}
-
-.mov-card__save.mov-card__save-active:hover {
-    cursor: default;
 }
 
 .mov-card__delete {

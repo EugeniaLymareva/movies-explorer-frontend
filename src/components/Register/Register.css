@@ -110,6 +110,8 @@
     line-height: normal;
     display: block;
     min-height: 10px;
+    max-width: 396px;
+    /* width: 100%; */
 }
 
 .submit-button {
@@ -136,6 +138,16 @@
     .submit-button {
         font-size: 12px;
     } 
+}
+
+.submit-button__disabled {
+    background-color: #F8F8F8;
+    color: #C2C2C2;
+}
+
+.submit-button__disabled:hover {
+    opacity: 1;
+    cursor: default;
 }
 
 .register__button {
@@ -188,4 +200,8 @@
     .link {
         font-size: 12px;
     }
+}
+
+.input__password:invalid {
+    color: #EE3465;
 }

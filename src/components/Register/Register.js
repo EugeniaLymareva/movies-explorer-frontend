@@ -1,39 +1,94 @@
 import headerLogo from '../../images/header-logo.svg' 
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import * as auth from '../../utils/Auth'
+import InfoTooltip from '../InfoTooltip/InfoTooltip'
 import './Register.css'
 
-function Register() {
+function Register(props) {
+    // const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = React.useState(false)
+    const [isRegister, setIsRegister] = React.useState(false)
+    const [errors, setErrors] = useState({}); 
+    const [isValid, setIsValid] = useState(false); 
+    const [formValue, setFormValue] = useState({
+        username: '',
+        email: '',
+        password: ''
+    })
+
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        const form = e.target.form 
+        const validationMessage = e.target.validationMessage 
+
+        setFormValue({                  
+            ...formValue,
+            [name]: value
+        })
+
+        setIsValid(form.checkValidity());
+
+        setErrors(prev => ({ ...prev, [name]: validationMessage }))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()          
+        
+        auth.register(formValue.username, formValue.email, formValue.password)
+        .then(() => {
+            setIsRegister(true)
+        })
+        .catch((err) => {
+            setIsRegister(false)
+            console.log(err)
+        })
+        .finally(() => {
+            props.setIsOpen(true)
+        }) 
+    }
+
+    // function closeInfoTooltip() {          
+    //     setIsInfoTooltipPopupOpen(false)
+    // }
+
     return (
-        <section className="register">
-            <Link to="/" className='register__link'>
-                <img className="header__logo register__logo" src={headerLogo} alt="Логотип Diplom" />
-            </Link>            
-            <h2 className="title register__title">Добро пожаловать!</h2>
-            <form className="register__form form">
-                <label className="label">Имя
-                    <input type="text" name="name" className="input" required minLength="2" maxLength="30" />
-                    <span className="error"></span>
-                </label>
+        <>
+            <section className="register">
+                <Link to="/" className='register__link'>
+                    <img className="header__logo register__logo" src={headerLogo} alt="Логотип Diplom" />
+                </Link>            
+                <h2 className="title register__title">Добро пожаловать!</h2>
+                <form className="register__form form" onSubmit={handleSubmit} noValidate >
+                    <label className="label">Имя
+                        <input type="text" name="username" className="input" value={formValue.username} onChange={handleChange} required minLength="2" maxLength="30" />
+                        <span className="error">{errors.username}</span>
+                    </label>
 
-                <label className="label">E-mail
-                    <input type="email" name="email" className="input" required minLength="2" maxLength="30" />
-                    <span className="error"></span>
-                </label>
+                    <label className="label">E-mail
+                        <input type="email" name="email" value={formValue.email} className="input" onChange={handleChange} required minLength="2" maxLength="30" />
+                        <span className="error">{errors.email}</span>
+                    </label>
 
-                <label className="label">Пароль
-                    <input type="password" name="password" className="input" required minLength="2" maxLength="30" />
-                    <span className="error">Что-то пошло не так...</span>
-                </label>
+                    <label className="label">Пароль
+                        <input type="password" name="password" className="input input__password" value={formValue.password} onChange={handleChange} required minLength="8" maxLength="30" />
+                        <span className="error">{errors.password}</span>
+                    </label>
 
-                <button type="submit" className="submit-button register__button">Зарегистрироваться</button>
-            </form>
+                    <button type="submit" className={`submit-button ${isValid ? '' : 'submit-button__disabled'} register__button`} disabled={isValid ? false : true}>Зарегистрироваться</button>
+                </form>
 
-            <div className="signin-signup">
-                    <p>Уже зарегистрированы?</p>
-                    <Link to="/signin" className="link">Войти</Link>
-            </div>
-        </section>
+                <div className="signin-signup">
+                        <p>Уже зарегистрированы?</p>
+                        <Link to="/signin" className="link">Войти</Link>
+                </div>
+            </section>
+
+            <InfoTooltip
+                isOpen={props.isOpen}
+                onClose={props.onClose}
+                isRegister={isRegister}
+            />
+        </>
     )
 
 }

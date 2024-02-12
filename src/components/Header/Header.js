@@ -2,11 +2,12 @@ import headerLogo from '../../images/header-logo.svg'
 import accountIcon from '../../images/icon-account.svg'
 import React from 'react'
 import {Link, useNavigate, useLocation} from 'react-router-dom'
-import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions } from 'react-native'
 import './Header.css'
 import BurgerMenu from '../BurgerMenu/BurgerMenu'
 
 function Header({ isLoggedIn }) {
+    // console.log('header', isLoggedIn)
     const location = useLocation()
     // const navigate = useNavigate()
     const [windowSize, setWindowSize] = React.useState()
@@ -23,7 +24,7 @@ function Header({ isLoggedIn }) {
     return (
         <header className={`header ${location.pathname === '/' ? 'header__main' : ''}`}>
             <Link to="/"><img className="header__logo" src={headerLogo} alt="Логотип Diplom" /></Link>
-            {isLoggedIn === false ? 
+            {!isLoggedIn  ? 
                 (<><nav className= "header__nav">
                     <Link className="header__signup" to="/signup">Регистрация</Link>
                     <Link className="header__signin" to="/signin">Войти</Link>    
