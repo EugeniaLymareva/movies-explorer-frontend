@@ -1,22 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 import './SearchForm.css'
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox'
 
 
 function SearchForm(props) {
-    const [formValue, setFormValue] = useState({ search: ''})
+    const [formValue, setFormValue] = useState({ search: '' })
     const [isError, setIsError] = useState('')
     const { pathname } = useLocation()
+console.log('SearchForm render')
 
-    const handleChange = (e) => {
-        const {name, value} = e.target 
+    const handleChange = useCallback((e) => {
+        const { name, value } = e.target 
 
         setFormValue({                  
             ...formValue,
             [name]: value
         })
-    }
+
+        if (pathname === '/movies') {
+            localStorage.setItem(props.searchKey, value)
+            // console.log('formValue.search', formValue.search)
+        }
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -27,9 +33,6 @@ function SearchForm(props) {
         }
 
         setIsError('')
-        if (pathname === '/movies') {
-            localStorage.setItem(props.searchKey, formValue.search)
-        }
 
         props.searchMovies(formValue.search, props.savedMovies)
     }
@@ -37,7 +40,7 @@ function SearchForm(props) {
     return (
         <form className="search" onSubmit={handleSubmit} noValidate>
             <label className="search__label">
-                <input type="text" name="search" onChange={handleChange} className="search__input" placeholder='Фильм' required />
+                <input type="text" name="search" value={pathname === '/movies' ? localStorage.getItem(props.searchKey) || '' : ''} onChange={handleChange} className="search__input" placeholder='Фильм' required />
                 <button className="search__button" type="submit"></button>
             </label>
             <div className='search__error-container'>

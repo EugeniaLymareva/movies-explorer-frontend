@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js'
 import './App.css';
 import Main from '../Main/Main'
@@ -13,6 +13,12 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js'
 import apiMain from '../../utils/MainApi.js'
 import { parseCookie } from '../../utils/parseCookie.js'
 
+const PROTECTED_PATHS = {
+  movies: '/movies',
+  savedMovies: '/saved-movies',
+  profile: '/profile',
+}
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false)
   const [currentUser, setCurrentUser] = React.useState({})
@@ -24,12 +30,13 @@ function App() {
   const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = React.useState(false)
   const [errorMessage, setErrorMessage] = React.useState('')
   const navigate = useNavigate()
+  const { pathname } = useLocation()
 
   React.useEffect(() => {
     if (isLoggedIn) {
       Promise.all([apiMain.getUserInfo(), apiMain.getSavedMovies()])
       .then(([userData, moviesData]) => {
-        console.log('savedMovies', moviesData)
+        // console.log('savedMovies', moviesData)
         setCurrentUser(userData)
         setSavedMovies(moviesData)
         setSavedMoviesLoaded(true)
@@ -42,9 +49,15 @@ function App() {
   }, [isLoggedIn])
 
   function handleLogin(userData) {
+    const lastPath = localStorage.getItem('lastPath')
+    
     setUserData(userData)
     setIsLoggedIn(true)
-    navigate('/movies')
+
+    if (Object.values(PROTECTED_PATHS).includes(pathname)) { 
+      const navigateTo = lastPath ? lastPath : PROTECTED_PATHS.movies
+      navigate(navigateTo)
+    }
   }
 
   function handleCheckToken() {                    
@@ -70,7 +83,7 @@ function App() {
     setIsLoggedIn(false)
   }
 
-  React.useEffect(() => {   
+  React.useEffect(() => {
     handleCheckToken()      
   }, []) 
 
@@ -115,7 +128,6 @@ function App() {
     apiMain.addMovie(movieData)
         .then(() => {
             setSavedMovies(oldSavedMovies => ([...oldSavedMovies, movieData]))
-            // console.log('Фильм сохранен', movieData)
         })
         .catch((err) => {console.log( err)})
 }
@@ -134,6 +146,7 @@ function handleDeleteMovie(movieId) {
         <div className= "page">
           <Routes>
             <Route path='/signup' element={<Register
+              onLoggedIn={handleLogin}
               isOpen={isInfoTooltipPopupOpen}
               setIsOpen={setIsInfoTooltipPopupOpen}
               onClose={closeInfoTooltip} 
@@ -141,7 +154,7 @@ function handleDeleteMovie(movieId) {
             <Route path='/signin' element={<Login onLoggedIn={handleLogin} />} />
             <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
 
-            <Route path='/movies' element={<ProtectedRoute
+            <Route path={PROTECTED_PATHS.movies} element={<ProtectedRoute
               element={Movies}
               isLoggedIn={isLoggedIn}
               savedMoviesLoaded={savedMoviesLoaded}
@@ -153,7 +166,7 @@ function handleDeleteMovie(movieId) {
               errorMessage={errorMessage}
               setErrorMessage={setErrorMessage}
             />}/>
-            <Route path='/saved-movies' element={<ProtectedRoute
+            <Route path={PROTECTED_PATHS.savedMovies} element={<ProtectedRoute
               isLoggedIn={isLoggedIn}
               savedMoviesLoaded={savedMoviesLoaded}
               element={SavedMovies} 
@@ -164,19 +177,19 @@ function handleDeleteMovie(movieId) {
               errorMessage={errorMessage}
               setErrorMessage={setErrorMessage}
             />} />
-            <Route path='/profile' element={<ProtectedRoute
+            <Route path={PROTECTED_PATHS.profile} element={<ProtectedRoute
               isLoggedIn={isLoggedIn}
               element={Profile} 
               userData={userData}
               updateUser={isUpdateUser}
+              isUpdateUser={isUpdateUser}
               onUpdateUser={handleUpdateUser}
               isOpen={isInfoTooltipPopupOpen}
               onClose={closeInfoTooltip}
               loggedOut={handleLoginOut}
             />} />
             
-            
-            <Route path='/*' element={<PageNotFound />} />
+            <Route path='*' element={<PageNotFound />} />
           </Routes>
         
         </div>

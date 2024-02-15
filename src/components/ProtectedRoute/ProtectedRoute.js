@@ -1,9 +1,12 @@
 import React from 'react'
-import { Navigate } from "react-router-dom"
+import { Navigate, useLocation } from 'react-router-dom'
 
 const ProtectedRoute = ({ isLoggedIn, element: Component, ...props  }) => {
+    const { pathname } = useLocation()
+    localStorage.setItem('lastPath', pathname)
+
     return (
-        isLoggedIn  ? <Component {...props} /> : <Navigate to="/signin" replace/>
+        isLoggedIn  ? <Component {...props} /> : <Navigate to="/" replace/>
     )
 }
 

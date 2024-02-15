@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as auth from '../../utils/Auth'
 import InfoTooltip from '../InfoTooltip/InfoTooltip'
+import { regexEmail } from '../../utils/constants'
 import './Register.css'
 
 function Register(props) {
-    // const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = React.useState(false)
     const [isRegister, setIsRegister] = React.useState(false)
     const [errors, setErrors] = useState({}); 
     const [isValid, setIsValid] = useState(false); 
@@ -40,6 +40,7 @@ function Register(props) {
         })
         .catch((err) => {
             setIsRegister(false)
+            setIsValid(false)
             console.log(err)
         })
         .finally(() => {
@@ -47,9 +48,6 @@ function Register(props) {
         }) 
     }
 
-    // function closeInfoTooltip() {          
-    //     setIsInfoTooltipPopupOpen(false)
-    // }
 
     return (
         <>
@@ -65,7 +63,7 @@ function Register(props) {
                     </label>
 
                     <label className="label">E-mail
-                        <input type="email" name="email" value={formValue.email} className="input" onChange={handleChange} required minLength="2" maxLength="30" />
+                        <input type="email" name="email" value={formValue.email} pattern={regexEmail} className="input" onChange={handleChange} required minLength="2" maxLength="30" />
                         <span className="error">{errors.email}</span>
                     </label>
 
@@ -86,6 +84,8 @@ function Register(props) {
             <InfoTooltip
                 isOpen={props.isOpen}
                 onClose={props.onClose}
+                onLoggedIn={props.onLoggedIn}
+                formValue={formValue}
                 isRegister={isRegister}
             />
         </>

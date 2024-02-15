@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import './Main.css'
 import Header from '../Header/Header'
 import Promo from '../Promo/Promo'
@@ -10,6 +11,12 @@ import Footer from '../Footer/Footer'
 
 
 function Main(props) {
+    const { pathname } = useLocation()
+
+    if (props.isLoggedIn) {
+        localStorage.setItem('lastPath', pathname)
+    }
+
     return (
         <>
             <Header isLoggedIn={props.isLoggedIn} />

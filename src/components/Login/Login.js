@@ -2,6 +2,7 @@ import headerLogo from '../../images/header-logo.svg'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as auth from '../../utils/Auth'
+import { regexEmail } from '../../utils/constants'
 import './Login.css'
 
 function Login(props) {
@@ -40,6 +41,7 @@ function Login(props) {
         })
         .catch((err) => {
             setServerErrorMessage(`Что-то пошло не так! ` + err)
+            setIsValid(false)
             console.log(err)
         })
     }
@@ -53,7 +55,7 @@ function Login(props) {
             <h2 className="login__title title">Рады видеть!</h2>
             <form className="form" onSubmit={handleSubmit} noValidate >
                 <label className="label">E-mail
-                        <input type="email" name="email" className="input" onChange={handleChange} required minLength="2" maxLength="30" />
+                        <input type="email" name="email" className="input" pattern={regexEmail} onChange={handleChange} required minLength="2" maxLength="30" />
                         <span className="error">{errors.email}</span>
                 </label>
 

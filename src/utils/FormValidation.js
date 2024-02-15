@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-function FormValidation() {
+function useFormValidation() {
     const [values, setValues] = useState({});           //Состояние для хранения значений полей формы.
     const [errors, setErrors] = useState({});           //Состояние для хранения сообщений об ошибках валидации полей.
     const [isInputValid, setIsInputValid] = useState({})  // Состояние, указывающее на валидность инпута.
@@ -32,4 +32,4 @@ function FormValidation() {
     return { values, errors, isInputValid, isValid, handleChange, setValue, reset };
 }
 
-export default FormValidation;
+export default useFormValidation;
