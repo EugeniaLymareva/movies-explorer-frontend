@@ -1,5 +1,5 @@
-// const BASE_URL = 'https://api.lea.nomoredomainsrocks.ru';
-const BASE_URL = 'http://localhost:3000'
+const BASE_URL = 'https://api.lea.nomoredomainsrocks.ru';
+// const BASE_URL = 'http://localhost:3000'
 
 const getResponseData = (res) => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
 

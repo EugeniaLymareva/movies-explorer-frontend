@@ -56,7 +56,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-    baseUrl: 'http://localhost:3000',  // https://api.lea.nomoredomainsrocks.ru  // http://localhost:3000
+    baseUrl: 'https://api.lea.nomoredomainsrocks.ru',  // https://api.lea.nomoredomainsrocks.ru  // http://localhost:3000
     headers: {
       'Content-Type': 'application/json',
     }
