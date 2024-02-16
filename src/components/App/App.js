@@ -13,10 +13,14 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js'
 import apiMain from '../../utils/MainApi.js'
 import { parseCookie } from '../../utils/parseCookie.js'
 
-const PROTECTED_PATHS = {
+const ROUTE_PATHS = {
+  main: '/',
   movies: '/movies',
   savedMovies: '/saved-movies',
   profile: '/profile',
+  signup: '/signup',
+  signin: '/signin',
+
 }
 
 function App() {
@@ -54,8 +58,8 @@ function App() {
     setUserData(userData)
     setIsLoggedIn(true)
 
-    if (Object.values(PROTECTED_PATHS).includes(pathname)) { 
-      const navigateTo = lastPath ? lastPath : PROTECTED_PATHS.movies
+    if (Object.values(ROUTE_PATHS).includes(pathname)) { 
+      const navigateTo = lastPath ? lastPath : ROUTE_PATHS.movies
       navigate(navigateTo)
     }
   }
@@ -145,16 +149,16 @@ function handleDeleteMovie(movieId) {
       <div className="App">
         <div className= "page">
           <Routes>
-            <Route path='/signup' element={<Register
+            <Route path={ROUTE_PATHS.signup} element={<Register
               onLoggedIn={handleLogin}
               isOpen={isInfoTooltipPopupOpen}
               setIsOpen={setIsInfoTooltipPopupOpen}
               onClose={closeInfoTooltip} 
             />} />
-            <Route path='/signin' element={<Login onLoggedIn={handleLogin} />} />
-            <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
+            <Route path={ROUTE_PATHS.signin} element={<Login onLoggedIn={handleLogin} />} />
+            <Route path={ROUTE_PATHS.main} element={<Main isLoggedIn={isLoggedIn} />} />
 
-            <Route path={PROTECTED_PATHS.movies} element={<ProtectedRoute
+            <Route path={ROUTE_PATHS.movies} element={<ProtectedRoute
               element={Movies}
               isLoggedIn={isLoggedIn}
               savedMoviesLoaded={savedMoviesLoaded}
@@ -166,7 +170,7 @@ function handleDeleteMovie(movieId) {
               errorMessage={errorMessage}
               setErrorMessage={setErrorMessage}
             />}/>
-            <Route path={PROTECTED_PATHS.savedMovies} element={<ProtectedRoute
+            <Route path={ROUTE_PATHS.savedMovies} element={<ProtectedRoute
               isLoggedIn={isLoggedIn}
               savedMoviesLoaded={savedMoviesLoaded}
               element={SavedMovies} 
@@ -177,7 +181,7 @@ function handleDeleteMovie(movieId) {
               errorMessage={errorMessage}
               setErrorMessage={setErrorMessage}
             />} />
-            <Route path={PROTECTED_PATHS.profile} element={<ProtectedRoute
+            <Route path={ROUTE_PATHS.profile} element={<ProtectedRoute
               isLoggedIn={isLoggedIn}
               element={Profile} 
               userData={userData}
